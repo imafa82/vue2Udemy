@@ -13,6 +13,26 @@
 <body>
     <main>
         <h1>{{ text }}</h1>
+        <input type="text" v-model = "name" />
+        <hr>
+        <p><input type="text" v-model = "note" /></p>
+        <strong v-if="note && note >= 5 && note <= 99">Promosso</strong>
+        <strong v-else-if="note && note == 100">Eccellente</strong>
+        <span v-else>Sospeso</span>
+
+        <hr>
+
+        <h1>Lista film</h1>
+        <ol>
+          <li v-for="film in films"> {{film}} </li>
+        </ol>
+        <hr>
+        <h1>Lista di frutta</h1>
+        <ol>
+          <li v-for="(fruit, index) in fruits">
+            {{fruit}}
+          </li>
+        </ol>
     </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
   <script src="js/main.js"></script>
