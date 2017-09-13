@@ -22,17 +22,26 @@
 
         <hr>
 
-        <h1>Lista film</h1>
-        <ol>
-          <li v-for="film in films"> {{film}} </li>
-        </ol>
+        
         <hr>
         <h1>Lista di frutta</h1>
-        <ol>
-          <li v-for="(fruit, index) in fruits">
-            {{fruit}}
-          </li>
-        </ol>
+        
+          <div v-for="(fruit, index) in fruits">
+            {{index}}: 
+            
+              <p v-for="(value, key, index) in fruit">{{key}} - {{value}}</p>
+          </div>
+
+          <hr>
+          <h1>Lista film</h1>
+          <ol>
+            <li v-for="(film, index) in films"> {{film}} <button @click.prevent="deleteFilm(index)">Elimina Film</button></li>
+          </ol>
+          <form v-if="viewNew" @submit.prevent="createFilm()">
+            <input type="text" v-model="newFilm"/>
+            <input type="submit" value="Crea"/>
+          </form>
+          <button @click.prevent="showNewFilm()">Crea Film</button>
     </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
   <script src="js/main.js"></script>
